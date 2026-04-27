@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moonroi — Brand Manual</title>
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=objectivity@100,200,300,400,500,700,800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ─────────────────────────────────── */
+    :root {
+      --black:   #080808;
+      --white:   #F7F6F4;
+      --white-pure: #FFFFFF;
+      --gray-dark:  #1A1A1A;
+      --gray-mid:   #3A3A3A;
+      --gray-light: #C8C6C1;
+      --gray-faint: #EBEBEB;
+      --accent:  #6C63FF;
+      --teal:    #3ECFCB;
+      --gold:    #E9B84A;
+      --coral:   #FF6B6B;
+      --gradient-brand: linear-gradient(90deg, #6C63FF, #3ECFCB);
+      --font: 'Objectivity', 'DM Sans', system-ui, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── RESET ──────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); -webkit-font-smoothing: antialiased; background: var(--black); }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 56px;
+      background: rgba(8, 8, 8, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      font-size: 22px; font-weight: 800; letter-spacing: -0.3px;
+      color: var(--white);
+    }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; letter-spacing: 1.8px;
+      text-transform: uppercase; color: rgba(247,246,244,0.45);
+      padding: 7px 12px; border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
+
+    /* ── SECTIONS ───────────────────────────────── */
+    .on-black { background: var(--black); color: var(--white); }
+    .on-white { background: var(--white); color: var(--black); }
+
+    section { padding: 120px 0 100px; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 56px; }
+
+    /* ── SHARED TYPOGRAPHY ──────────────────────── */
+    .eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; opacity: 0.4;
+      margin-bottom: 20px;
+    }
+    .on-black .eyebrow { color: var(--white); }
+    .on-white .eyebrow { color: var(--black); }
+
+    .sec-title {
+      font-size: clamp(40px, 5.5vw, 72px); font-weight: 800;
+      letter-spacing: -2px; line-height: 0.95;
+      margin-bottom: 32px;
+    }
+    .sec-desc {
+      font-size: 21px; font-weight: 300; line-height: 1.75;
+      max-width: 600px; opacity: 0.65;
+      margin-bottom: 64px;
+    }
+
+    /* Accent line under eyebrow */
+    .section-head { margin-bottom: 72px; }
+    .section-head-line {
+      display: block; width: 32px; height: 2px;
+      margin-bottom: 20px;
+      background: var(--gradient-brand);
+    }
+
+    /* ── HERO ───────────────────────────────────── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: flex-end;
+      padding-bottom: 80px; padding-top: 120px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-text {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(160px, 22vw, 320px); font-weight: 800;
+      letter-spacing: -8px; white-space: nowrap;
+      color: rgba(255,255,255,0.025);
+      pointer-events: none; user-select: none;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: rgba(247,246,244,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 16px; border-radius: 2px;
+      margin-bottom: 40px;
+    }
+    .hero-tag-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gradient-brand);
+      background: var(--teal);
+    }
+    .hero-title {
+      font-size: clamp(64px, 10vw, 152px); font-weight: 800;
+      letter-spacing: -4px; line-height: 0.9;
+      margin-bottom: 48px; color: var(--white);
+    }
+    .hero-title span {
+      display: block;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-meta {
+      display: flex; gap: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .hero-meta-label {
+      font-size: 13px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+    .hero-meta-value {
+      font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.7);
+    }
+
+    /* ── BRAND ESSENCE (WHITE) ──────────────────── */
+    .duality-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin-bottom: 2px;
+    }
+    .duality-cell {
+      padding: 48px 40px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .duality-cell.moon { background: var(--white-pure); }
+    .duality-cell.roi  { background: var(--gray-faint); }
+    .duality-cell-label {
+      font-size: 13px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .duality-cell.moon .duality-cell-label { color: var(--accent); }
+    .duality-cell.roi  .duality-cell-label { color: var(--teal); }
+    .duality-cell-heading {
+      font-size: 36px; font-weight: 800; letter-spacing: -1px;
+      margin-bottom: 20px; line-height: 1;
+    }
+    .duality-traits { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .duality-traits li {
+      font-size: 19px; font-weight: 400; color: #444;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .duality-traits li::before {
+      content: ''; width: 3px; height: 3px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .duality-cell.moon .duality-traits li::before { background: var(--accent); }
+    .duality-cell.roi  .duality-traits li::before { background: var(--teal); }
+
+    .essence-trio {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 2px;
+    }
+    .essence-card {
+      padding: 40px 36px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: var(--white-pure);
+      position: relative;
+    }
+    .essence-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+    }
+    .essence-card.mission::before { background: var(--gradient-brand); }
+    .essence-card.vision::before  { background: linear-gradient(90deg, var(--gold), #F5D98C); }
+    .essence-card.purpose::before { background: linear-gradient(90deg, var(--teal), #45D4D0); }
+    .essence-num {
+      font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #AAA;
+      margin-bottom: 20px;
+    }
+    .essence-title-text {
+      font-size: 26px; font-weight: 700; letter-spacing: -0.3px;
+      margin-bottom: 12px; color: var(--black);
+    }
+    .essence-body-text {
+      font-size: 18px; font-weight: 300; line-height: 1.75; color: #666;
+    }
+
+    /* ── LOGO (BLACK) ───────────────────────────── */
+    .logo-grid-3 {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-bottom: 2px;
+    }
+    .logo-cell {
+      padding: 72px 48px;
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: flex-end;
+      min-height: 240px;
+    }
+    .logo-cell.bg-white    { background: var(--white-pure); }
+    .logo-cell.bg-surface  { background: var(--gray-faint); }
+    .logo-cell.bg-black    { background: #0A0A0A; border: 1px solid rgba(255,255,255,0.06); }
+    .logo-wordmark {
+      font-size: clamp(32px, 5vw, 52px); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1;
+    }
+    .logo-wordmark.grad {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .logo-wordmark.dark  { color: #080808; }
+    .logo-wordmark.light { color: #F7F6F4; }
+    .logo-caption-text {
+      font-size: 14px; font-weight: 400; letter-spacing: 0;
+      margin-top: 12px; opacity: 0.45;
+    }
+    .logo-cell.bg-black .logo-caption-text { color: var(--white); }
+    .logo-cell.bg-white .logo-caption-text  { color: var(--black); }
+    .logo-cell.bg-surface .logo-caption-text { color: var(--black); }
+
+    .logo-rules {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin-top: 2px;
+    }
+    .logo-rule-cell {
+      padding: 40px 36px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .rule-head {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .rule-head.do-head   { color: var(--teal); }
+    .rule-head.dont-head { color: var(--coral); }
+    .rule-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .rule-list li {
+      font-size: 15px; font-weight: 300; line-height: 1.55;
+      color: rgba(247,246,244,0.65);
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .rule-list.do-list li::before { content: '↗'; color: var(--teal); flex-shrink: 0; font-weight: 700; }
+    .rule-list.dont-list li::before { content: '×'; color: var(--coral); flex-shrink: 0; font-weight: 700; }
+
+    /* clearspace callout */
+    .clearspace-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; padding: 32px 36px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-top: 2px; flex-wrap: wrap;
+    }
+    .clearspace-text { max-width: 480px; }
+    .clearspace-label {
+      font-size: 13px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .clearspace-body { font-size: 18px; font-weight: 300; line-height: 1.7; color: rgba(247,246,244,0.6); }
+    .clearspace-demo {
+      padding: 20px 40px;
+      border: 1px dashed rgba(108,99,255,0.35);
+    }
+    .clearspace-wordmark {
+      font-size: 32px; font-weight: 800; letter-spacing: -1px;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── COLORS (WHITE) ─────────────────────────── */
+    .color-grid-main {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; margin-bottom: 2px;
+    }
+    .color-card {
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .color-swatch { height: 100px; width: 100%; }
+    .color-info { padding: 16px 18px; background: var(--white-pure); }
+    .color-name-text { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+    .color-hex-text {
+      font-family: 'Courier New', monospace;
+      font-size: 14px; color: #888;
+    }
+    .color-role-text {
+      font-size: 12px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; color: #AAA; margin-top: 4px;
+    }
+
+    .color-neut-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 2px; margin-top: 2px;
+    }
+
+    .proportion-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 2px;
+    }
+    .proportion-cell {
+      padding: 40px 32px;
+      border: 1px solid rgba(0,0,0,0.06);
+      background: var(--white-pure);
+    }
+    .proportion-pct {
+      font-size: 64px; font-weight: 800; letter-spacing: -2px;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .proportion-label-text { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .proportion-desc-text  { font-size: 16px; font-weight: 300; color: #888; line-height: 1.6; }
+
+    /* gradient bar */
+    .gradient-display {
+      height: 64px; width: 100%;
+      background: linear-gradient(90deg, #6C63FF, #3ECFCB);
+      margin-bottom: 2px;
+    }
+    .gradient-info {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    }
+    .gradient-info-cell {
+      padding: 16px 20px; background: var(--white-pure);
+      border: 1px solid rgba(0,0,0,0.06);
+      font-size: 13px; font-weight: 400; color: #666;
+    }
+    .gradient-info-cell strong { font-weight: 700; color: var(--black); }
+
+    /* ── TYPOGRAPHY (BLACK) ─────────────────────── */
+    .type-specimen {
+      padding: 56px 48px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 2px;
+    }
+    .type-specimen-big {
+      font-size: clamp(60px, 10vw, 120px); font-weight: 800;
+      letter-spacing: -3px; line-height: 0.9;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .type-specimen-meta {
+      font-size: 14px; font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+
+    .type-scale-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+    .type-row-cell {
+      padding: 32px 36px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .type-row-label {
+      font-size: 13px; font-weight: 600; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+    .type-row-sample { color: var(--white); }
+    .type-row-spec {
+      font-family: 'Courier New', monospace;
+      font-size: 14px; color: rgba(255,255,255,0.25);
+      margin-top: 4px;
+    }
+
+    .weight-row {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 2px; margin-top: 2px;
+    }
+    .weight-cell {
+      padding: 32px 28px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .weight-sample {
+      font-size: 28px; line-height: 1; color: var(--white);
+      margin-bottom: 12px;
+    }
+    .weight-label-text {
+      font-size: 13px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+
+    /* ── VOICE (WHITE) ──────────────────────────── */
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 2px; margin-bottom: 2px;
+    }
+    .pillar-cell {
+      padding: 36px 28px;
+      background: var(--white-pure);
+      border: 1px solid rgba(0,0,0,0.06);
+      position: relative; overflow: hidden;
+    }
+    .pillar-cell::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+    }
+    .pillar-cell:nth-child(1)::after { background: var(--gradient-brand); }
+    .pillar-cell:nth-child(2)::after { background: linear-gradient(90deg, var(--gold), #F5D98C); }
+    .pillar-cell:nth-child(3)::after { background: linear-gradient(90deg, var(--teal), #45D4D0); }
+    .pillar-cell:nth-child(4)::after { background: linear-gradient(90deg, var(--coral), #FF8E53); }
+    .pillar-cell:nth-child(5)::after { background: linear-gradient(90deg, #A8E6CF, #3D9970); }
+    .pillar-num-big {
+      font-size: 56px; font-weight: 800; letter-spacing: -2px;
+      color: rgba(0,0,0,0.07); line-height: 1; margin-bottom: 20px;
+    }
+    .pillar-name { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .pillar-body { font-size: 17px; font-weight: 300; line-height: 1.65; color: #666; }
+
+    .copy-examples {
+      border: 1px solid rgba(0,0,0,0.08); margin-top: 2px;
+    }
+    .copy-examples-head {
+      padding: 20px 36px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      font-size: 13px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #AAA;
+    }
+    .copy-item {
+      padding: 28px 36px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .copy-item:last-child { border-bottom: none; }
+    .copy-channel {
+      font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .copy-headline { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
+    .copy-sub { font-size: 17px; font-weight: 300; color: #888; line-height: 1.6; }
+
+    .vocab-grid-2 {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin-top: 2px;
+    }
+    .vocab-cell {
+      padding: 36px;
+      background: var(--white-pure);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .vocab-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+    .vocab-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .vocab-list li {
+      font-size: 18px; font-weight: 400; color: #444;
+      display: flex; align-items: center; gap: 10px;
+      padding: 6px 10px; border-radius: 2px;
+    }
+    .vocab-list.yes li { background: rgba(108,99,255,0.05); }
+    .vocab-list.yes li::before { content: '✓'; color: var(--teal); font-weight: 700; }
+    .vocab-list.no li  { background: rgba(255,107,107,0.04); }
+    .vocab-list.no li::before  { content: '×'; color: var(--coral); font-weight: 700; }
+
+    /* ── VISUAL ELEMENTS (BLACK) ────────────────── */
+    .visual-rules-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      margin-bottom: 2px;
+    }
+    .visual-rule-cell {
+      padding: 44px 40px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .visual-rule-tag {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .visual-rule-tag.do   { color: var(--teal); }
+    .visual-rule-tag.dont { color: var(--coral); }
+    .visual-rule-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; color: var(--white); }
+    .visual-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .visual-list li {
+      font-size: 18px; font-weight: 300; color: rgba(247,246,244,0.55);
+      display: flex; gap: 10px; line-height: 1.55;
+    }
+    .visual-list.do-list li::before   { content: '↗'; color: var(--teal); flex-shrink: 0; }
+    .visual-list.dont-list li::before { content: '×'; color: var(--coral); flex-shrink: 0; }
+
+    .graphic-elements-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .graphic-el-cell {
+      padding: 32px 28px; text-align: center;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .graphic-demo { height: 64px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .graphic-name { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .graphic-desc { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.55; }
+
+    .demo-orb {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, #6C63FF, #3ECFCB);
+      opacity: 0.3; filter: blur(6px);
+    }
+    .demo-line {
+      width: 80%; height: 1px;
+      background: linear-gradient(90deg, #6C63FF, #3ECFCB); opacity: 0.5;
+    }
+    .demo-rect {
+      width: 52px; height: 36px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px;
+    }
+    .demo-arrow-text { font-size: 28px; color: rgba(255,255,255,0.3); }
+
+    /* Spacing */
+    .spacing-row {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 2px; margin-top: 2px;
+    }
+    .space-cell {
+      padding: 20px 16px; text-align: center;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .space-bar-wrap { display: flex; align-items: flex-end; justify-content: center; height: 64px; margin-bottom: 10px; }
+    .space-bar { width: 16px; background: linear-gradient(180deg, #6C63FF, #3ECFCB); opacity: 0.6; }
+    .space-val {
+      font-family: 'Courier New', monospace;
+      font-size: 15px; color: var(--accent);
+    }
+    .space-token { font-size: 13px; color: rgba(255,255,255,0.25); margin-top: 4px; letter-spacing: 0.5px; }
+
+    /* ── DESIGN TOKENS (WHITE) ──────────────────── */
+    .tokens-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    }
+    .token-group-cell {
+      padding: 36px 32px;
+      background: var(--white-pure);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .token-group-head {
+      font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--accent);
+      padding-bottom: 12px; margin-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .token-row-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05); gap: 16px;
+    }
+    .token-row-item:last-child { border-bottom: none; }
+    .token-name-text {
+      font-family: 'Courier New', monospace;
+      font-size: 14px; color: var(--accent);
+    }
+    .token-val-wrap { display: flex; align-items: center; gap: 8px; }
+    .token-val-text {
+      font-family: 'Courier New', monospace;
+      font-size: 14px; color: #888;
+    }
+    .token-preview-sq {
+      width: 18px; height: 18px; border-radius: 2px; flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .code-block {
+      margin-top: 2px; padding: 40px 48px;
+      background: #0A0A14;
+      border: 1px solid rgba(255,255,255,0.05);
+      font-family: 'Courier New', 'SF Mono', monospace;
+      font-size: 15px; line-height: 2;
+      color: #8B8BCC; overflow-x: auto; white-space: pre-wrap;
+    }
+    .code-block .cm { color: rgba(139,139,204,0.4); }
+    .code-block .ck { color: #6C63FF; }
+    .code-block .cv { color: #3ECFCB; }
+
+    /* ── FOOTER (BLACK) ─────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 72px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 40px;
+    }
+    .footer-wordmark {
+      font-size: 48px; font-weight: 800; letter-spacing: -2px;
+      line-height: 1; color: rgba(255,255,255,0.08);
+    }
+    .footer-meta p {
+      font-size: 16px; font-weight: 300;
+      color: rgba(247,246,244,0.35); line-height: 1.8;
+    }
+    .footer-meta a { color: rgba(247,246,244,0.5); }
+    .footer-meta a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .container { padding: 0 24px; }
+      section { padding: 80px 0 64px; }
+      .duality-grid { grid-template-columns: 1fr; }
+      .essence-trio { grid-template-columns: 1fr; }
+      .logo-grid-3 { grid-template-columns: 1fr; }
+      .logo-rules { grid-template-columns: 1fr; }
+      .color-grid-main { grid-template-columns: 1fr 1fr; }
+      .color-neut-grid { grid-template-columns: repeat(3, 1fr); }
+      .proportion-row { grid-template-columns: 1fr; }
+      .type-scale-grid { grid-template-columns: 1fr; }
+      .weight-row { grid-template-columns: 1fr 1fr; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .vocab-grid-2 { grid-template-columns: 1fr; }
+      .visual-rules-grid { grid-template-columns: 1fr; }
+      .graphic-elements-grid { grid-template-columns: 1fr 1fr; }
+      .spacing-row { grid-template-columns: repeat(3, 1fr); }
+      .tokens-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+      .hero-meta { gap: 24px; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Moonroi</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Intro</a></li>
+      <li><a href="#essence">Esencia</a></li>
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#colors">Color</a></li>
+      <li><a href="#type">Tipo</a></li>
+      <li><a href="#voice">Voz</a></li>
+      <li><a href="#visual">Visual</a></li>
+      <li><a href="#tokens">Tokens</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════ HERO (BLACK) ═══════ -->
+  <section id="hero" class="on-black">
+    <div class="hero-bg-text">MOONROI</div>
+    <div class="container">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Brand Manual · v2.0 · Abril 2026
+      </div>
+      <h1 class="hero-title">
+        Brand<br />
+        <span>Manual</span>
+      </h1>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Agencia</span>
+          <span class="hero-meta-value">Moonroi</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Versión</span>
+          <span class="hero-meta-value">2.0 — Abril 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Empresas</span>
+          <span class="hero-meta-value">+150 servidas</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Ad Spend</span>
+          <span class="hero-meta-value">€12M gestionados</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Contacto</span>
+          <span class="hero-meta-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="73030310331e1c1c1d011c1a5d101c1e">[email&#160;protected]</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ BRAND ESSENCE (WHITE) ═══════ -->
+  <section id="essence" class="on-white">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-head-line"></span>
+        <div class="eyebrow">Brand Essence — 01</div>
+        <h2 class="sec-title">La tensión<br />que nos define</h2>
+        <p class="sec-desc">Moonroi no es un accidente. Contiene una dualidad productiva que guía cada decisión visual y verbal de la marca: paciencia y urgencia, profundidad y resultados.</p>
+      </div>
+
+      <div class="duality-grid">
+        <div class="duality-cell moon">
+          <div class="duality-cell-label">Moon</div>
+          <div class="duality-cell-heading">La Luna</div>
+          <ul class="duality-traits">
+            <li>Paciencia y ciclos</li>
+            <li>Constancia y profundidad</li>
+            <li>Pensamiento a largo plazo</li>
+            <li>Gravedad y sistema</li>
+            <li>Espacio y precisión sideral</li>
+          </ul>
+        </div>
+        <div class="duality-cell roi">
+          <div class="duality-cell-label">ROI</div>
+          <div class="duality-cell-heading">El Retorno</div>
+          <ul class="duality-traits">
+            <li>Urgencia y resultados</li>
+            <li>Medición y precisión</li>
+            <li>Datos y accountability</li>
+            <li>Velocidad y crecimiento</li>
+            <li>P&amp;L, no vanity metrics</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="essence-trio">
+        <div class="essence-card mission">
+          <div class="essence-num">01 — Misión</div>
+          <div class="essence-title-text">Crecer en tiempo récord</div>
+          <p class="essence-body-text">Hacer crecer negocios de e-commerce y productos digitales con métodos científicos aplicados en más de 150 empresas. El crecimiento no es suerte — es sistema.</p>
+        </div>
+        <div class="essence-card vision">
+          <div class="essence-num">02 — Visión</div>
+          <div class="essence-title-text">El partner de referencia</div>
+          <p class="essence-body-text">Ser la agencia de crecimiento de referencia para marcas digitales que quieren escalar con paid media y funnels completos. No gestores: arquitectos de crecimiento.</p>
+        </div>
+        <div class="essence-card purpose">
+          <div class="essence-num">03 — Propósito</div>
+          <div class="essence-title-text">ROI sin adivinar</div>
+          <p class="essence-body-text">Que ningún negocio digital pierda presupuesto por falta de estrategia. Cada euro invertido debe poder explicarse, medirse y optimizarse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ LOGO (BLACK) ═══════ -->
+  <section id="logo" class="on-black">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-head-line"></span>
+        <div class="eyebrow">Identidad Visual — 02</div>
+        <h2 class="sec-title">El logotipo</h2>
+        <p class="sec-desc">El wordmark es la marca. Limpio, audaz, sin adornos. Objectivity ExtraBold encarna la dualidad Moon/ROI: arquitectónico como la luna, preciso como un KPI.</p>
+      </div>
+
+      <div class="logo-grid-3">
+        <div>
+          <div class="logo-cell bg-surface">
+            <span class="logo-wordmark grad">Moonroi</span>
+            <span class="logo-caption-text">Gradiente · fondo claro</span>
+          </div>
+        </div>
+        <div>
+          <div class="logo-cell bg-white">
+            <span class="logo-wordmark dark">Moonroi</span>
+            <span class="logo-caption-text">Sólido oscuro · blanco puro</span>
+          </div>
+        </div>
+        <div>
+          <div class="logo-cell bg-black">
+            <span class="logo-wordmark light">Moonroi</span>
+            <span class="logo-caption-text">Blanco · fondo negro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearspace-row">
+        <div class="clearspace-text">
+          <div class="clearspace-label">Zona de exclusión</div>
+          <p class="clearspace-body">Espacio libre mínimo equivalente a la altura de la «M» en los cuatro lados. Escala mínima: <strong style="color:var(--white)">120 px en digital</strong> · <strong style="color:var(--white)">30 mm en impresión</strong>.</p>
+        </div>
+        <div class="clearspace-demo">
+          <span class="clearspace-wordmark">Moonroi</span>
+        </div>
+      </div>
+
+      <div class="logo-rules">
+        <div class="logo-rule-cell">
+          <div class="rule-head do-head">Permitido</div>
+          <ul class="rule-list do-list">
+            <li>Gradiente aplicado sobre fondos claros</li>
+            <li>Dark (#080808) sobre fondos blancos o surface</li>
+            <li>Blanco puro sobre fondos oscuros o gradiente</li>
+            <li>Escala proporcional, nunca distorsión</li>
+            <li>Zona de exclusión siempre respetada</li>
+          </ul>
+        </div>
+        <div class="logo-rule-cell">
+          <div class="rule-head dont-head">Prohibido</div>
+          <ul class="rule-list dont-list">
+            <li>Sobre fondos con bajo contraste</li>
+            <li>Estirar o comprimir proporciones</li>
+            <li>Sombras, contornos, efectos 3D o glow</li>
+            <li>Cambiar la tipografía del wordmark</li>
+            <li>Rotar, inclinar o fragmentar el logotipo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ COLORS (WHITE) ═══════ -->
+  <section id="colors" class="on-white">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-head-line"></span>
+        <div class="eyebrow">Sistema de Color — 03</div>
+        <h2 class="sec-title">Paleta<br />cromática</h2>
+        <p class="sec-desc">Black-on-white como base, acento púrpura→teal en el punto exacto donde Moon se convierte en ROI. El oro, reservado para proof points y KPIs tangibles.</p>
+      </div>
+
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#AAA;margin-bottom:8px;">Gradiente de Marca</div>
+      <div class="gradient-display"></div>
+      <div class="gradient-info">
+        <div class="gradient-info-cell"><strong>Moon side</strong> — #6C63FF — Violeta profundo</div>
+        <div class="gradient-info-cell"><strong>ROI side</strong> — #3ECFCB — Esmeralda preciso</div>
+      </div>
+
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#AAA;margin-top:40px;margin-bottom:8px;">Colores de Acento</div>
+      <div class="color-grid-main">
+        <div class="color-card">
+          <div class="color-swatch" style="background:#6C63FF;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Violet</div>
+            <div class="color-hex-text">#6C63FF</div>
+            <div class="color-role-text">Acento primario</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background:#3ECFCB;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Teal</div>
+            <div class="color-hex-text">#3ECFCB</div>
+            <div class="color-role-text">Acento secundario</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background:#E9B84A;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Gold</div>
+            <div class="color-hex-text">#E9B84A</div>
+            <div class="color-role-text">KPIs y logros</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background:#FF6B6B;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Coral</div>
+            <div class="color-hex-text">#FF6B6B</div>
+            <div class="color-role-text">Alertas y negativos</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#AAA;margin-top:40px;margin-bottom:8px;">Neutrales</div>
+      <div class="color-neut-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background:#080808; border-bottom:1px solid #ddd;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Black</div>
+            <div class="color-hex-text">#080808</div>
+            <div class="color-role-text">Fondo oscuro</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background:#1A1A1A; border-bottom:1px solid #ddd;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Dark Gray</div>
+            <div class="color-hex-text">#1A1A1A</div>
+            <div class="color-role-text">Superficies oscuras</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background:#3A3A3A; border-bottom:1px solid #ddd;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Mid Gray</div>
+            <div class="color-hex-text">#3A3A3A</div>
+            <div class="color-role-text">Texto secundario dark</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background:#EBEBEB;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Light Gray</div>
+            <div class="color-hex-text">#EBEBEB</div>
+            <div class="color-role-text">Superficies claras</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background:#F7F6F4;"></div>
+          <div class="color-info">
+            <div class="color-name-text">Off White</div>
+            <div class="color-hex-text">#F7F6F4</div>
+            <div class="color-role-text">Fondo claro base</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background:#FFFFFF; border-bottom:1px solid #eee;"></div>
+          <div class="color-info">
+            <div class="color-name-text">White</div>
+            <div class="color-hex-text">#FFFFFF</div>
+            <div class="color-role-text">Fondo puro</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proportion-row">
+        <div class="proportion-cell">
+          <div class="proportion-pct">60%</div>
+          <div class="proportion-label-text">Negro / Blanco</div>
+          <div class="proportion-desc-text">Base neutral. El contraste limpio construye confianza y autoridad.</div>
+        </div>
+        <div class="proportion-cell">
+          <div class="proportion-pct">30%</div>
+          <div class="proportion-label-text">Gradiente Marca</div>
+          <div class="proportion-desc-text">Violet → Teal. El punto de encuentro Moon/ROI. Solo en elementos clave.</div>
+        </div>
+        <div class="proportion-cell">
+          <div class="proportion-pct">10%</div>
+          <div class="proportion-label-text">Oro + Coral</div>
+          <div class="proportion-desc-text">Reservados para KPIs, logros destacados y alertas. Nunca decorativos.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ TYPOGRAPHY (BLACK) ═══════ -->
+  <section id="type" class="on-black">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-head-line"></span>
+        <div class="eyebrow">Tipografía — 04</div>
+        <h2 class="sec-title">Objectivity</h2>
+        <p class="sec-desc">Una sola familia tipográfica. Objectivity ExtraBold para display e impacto; Regular y Light para cuerpo de texto. Cero excepciones.</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-specimen-big">AaBb<br />Cc0123</div>
+        <div class="type-specimen-meta">Objectivity — ExtraBold 800 · Geometric Sans-Serif</div>
+      </div>
+
+      <div class="type-scale-grid">
+        <div class="type-row-cell">
+          <div class="type-row-label">Display</div>
+          <div class="type-row-sample" style="font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-2px;line-height:0.9;">Grow In<br />Record Time</div>
+          <div class="type-row-spec">72px · weight 800 · tracking -2px</div>
+        </div>
+        <div class="type-row-cell">
+          <div class="type-row-label">Heading 1</div>
+          <div class="type-row-sample" style="font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-1px;line-height:1.05;">Trusted Growth<br />Partners</div>
+          <div class="type-row-spec">48px · weight 700 · tracking -1px</div>
+        </div>
+        <div class="type-row-cell">
+          <div class="type-row-label">Heading 2</div>
+          <div class="type-row-sample" style="font-size:34px;font-weight:600;letter-spacing:-0.5px;line-height:1.1;">Full Funnels &amp; Paid Media</div>
+          <div class="type-row-spec">34px · weight 600 · tracking -0.5px</div>
+        </div>
+        <div class="type-row-cell">
+          <div class="type-row-label">Heading 3</div>
+          <div class="type-row-sample" style="font-size:22px;font-weight:600;letter-spacing:0;line-height:1.2;">Métodos científicos. Resultados medibles.</div>
+          <div class="type-row-spec">22px · weight 600 · tracking 0</div>
+        </div>
+        <div class="type-row-cell">
+          <div class="type-row-label">Body</div>
+          <div class="type-row-sample" style="font-size:18px;font-weight:300;line-height:1.75;color:rgba(247,246,244,0.65);">Hacemos crecer negocios de e-commerce en tiempo récord. No prometemos resultados — los demostramos con datos, metodología y más de 150 empresas servidas.</div>
+          <div class="type-row-spec">18px · weight 300 · line-height 1.75</div>
+        </div>
+        <div class="type-row-cell">
+          <div class="type-row-label">Caption / Label</div>
+          <div class="type-row-sample" style="font-size:14px;font-weight:400;line-height:1.6;color:rgba(247,246,244,0.5);">Nota a pie de página o metadata secundaria de apoyo al contenido principal.</div>
+          <div class="type-row-spec">14px · weight 400 · line-height 1.6</div>
+        </div>
+      </div>
+
+      <div class="weight-row">
+        <div class="weight-cell">
+          <div class="weight-sample" style="font-weight:100;">Moonroi</div>
+          <div class="weight-label-text">Thin 100</div>
+        </div>
+        <div class="weight-cell">
+          <div class="weight-sample" style="font-weight:300;">Moonroi</div>
+          <div class="weight-label-text">Light 300</div>
+        </div>
+        <div class="weight-cell">
+          <div class="weight-sample" style="font-weight:400;">Moonroi</div>
+          <div class="weight-label-text">Regular 400</div>
+        </div>
+        <div class="weight-cell">
+          <div class="weight-sample" style="font-weight:700;">Moonroi</div>
+          <div class="weight-label-text">Bold 700</div>
+        </div>
+        <div class="weight-cell">
+          <div class="weight-sample" style="font-weight:800;">Moonroi</div>
+          <div class="weight-label-text">ExtraBold 800</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ VOICE & TONE (WHITE) ═══════ -->
+  <section id="voice" class="on-white">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-head-line"></span>
+        <div class="eyebrow">Voz y Tono — 05</div>
+        <h2 class="sec-title">Cómo habla<br />Moonroi</h2>
+        <p class="sec-desc">Directa. Demostrable. Clara. Humana. Ambiciosa. Cinco pilares que nunca se negocian, independientemente del canal o formato.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-cell">
+          <div class="pillar-num-big">01</div>
+          <div class="pillar-name">Directa</div>
+          <p class="pillar-body">Sin rodeos. Si algo se puede decir en 5 palabras, no se dice en 15.</p>
+        </div>
+        <div class="pillar-cell">
+          <div class="pillar-num-big">02</div>
+          <div class="pillar-name">Demostrable</div>
+          <p class="pillar-body">Cada claim va respaldado por evidencia. Números reales, no aproximaciones.</p>
+        </div>
+        <div class="pillar-cell">
+          <div class="pillar-num-big">03</div>
+          <div class="pillar-name">Clara</div>
+          <p class="pillar-body">Sin jerga innecesaria. Lo complejo se explica simple. Lo simple no se complica.</p>
+        </div>
+        <div class="pillar-cell">
+          <div class="pillar-num-big">04</div>
+          <div class="pillar-name">Humana</div>
+          <p class="pillar-body">Somos partners, no proveedores. Reconocemos la frustración real de nuestros clientes.</p>
+        </div>
+        <div class="pillar-cell">
+          <div class="pillar-num-big">05</div>
+          <div class="pillar-name">Ambiciosa</div>
+          <p class="pillar-body">Creemos en el crecimiento en tiempo récord. Prometemos lo que otros llaman imposible.</p>
+        </div>
+      </div>
+
+      <div class="copy-examples">
+        <div class="copy-examples-head">Copy real — ejemplos de uso</div>
+        <div class="copy-item">
+          <div class="copy-channel">Tagline principal</div>
+          <div class="copy-headline">Grow Your Business In Record Time.</div>
+          <div class="copy-sub">Alternativa: "Full Funnels &amp; Paid Media Like Never Seen Before."</div>
+        </div>
+        <div class="copy-item">
+          <div class="copy-channel">Propuesta de valor</div>
+          <div class="copy-headline">Trusted Growth Partners for e-commerce &amp; digital product businesses.</div>
+          <div class="copy-sub">Métodos científicos aplicados en más de 150 empresas. No agencia — partner.</div>
+        </div>
+        <div class="copy-item">
+          <div class="copy-channel">Paid · headline</div>
+          <div class="copy-headline">Mientras otras agencias optimizan CPM, nosotros optimizamos tu margen.</div>
+          <div class="copy-sub">Comparación directa + propuesta de valor única. Sin escudo.</div>
+        </div>
+        <div class="copy-item">
+          <div class="copy-channel">CTA principal</div>
+          <div class="copy-headline">Analiza mi potencial →</div>
+          <div class="copy-sub">Alt: "Empieza a crecer hoy" · "Ver mi diagnóstico" · "Hablar con un estratega"</div>
+        </div>
+      </div>
+
+      <div class="vocab-grid-2">
+        <div class="vocab-cell">
+          <div class="vocab-title">Vocabulario Moonroi</div>
+          <ul class="vocab-list yes">
+            <li>Crecimiento en tiempo récord</li>
+            <li>Margen, P&amp;L, ROAS real</li>
+            <li>Sistema, metodología, datos</li>
+            <li>Partner de crecimiento</li>
+            <li>Demostrable, medible, accountable</li>
+            <li>Full funnel, paid media, automatización</li>
+          </ul>
+        </div>
+        <div class="vocab-cell">
+          <div class="vocab-title">Términos a evitar</div>
+          <ul class="vocab-list no">
+            <li>Sinergia, holístico, disruptivo</li>
+            <li>Potencialmente podríamos explorar</li>
+            <li>Impressions o CPM como KPI principal</li>
+            <li>Estimado cliente</li>
+            <li>Soluciones 360º, ecosistema digital</li>
+            <li>Líderes del sector (sin prueba)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ VISUAL ELEMENTS (BLACK) ═══════ -->
+  <section id="visual" class="on-black">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-head-line"></span>
+        <div class="eyebrow">Lenguaje Visual — 06</div>
+        <h2 class="sec-title">Elementos<br />visuales</h2>
+        <p class="sec-desc">Todo elemento visual tiene un propósito. Nada decorativo por decorar. Fotografía real, datos como protagonistas, gráficos al servicio del mensaje.</p>
+      </div>
+
+      <div class="visual-rules-grid">
+        <div class="visual-rule-cell">
+          <div class="visual-rule-tag do">Fotografía — Sí</div>
+          <ul class="visual-list do-list">
+            <li>Personas reales en entornos de trabajo auténticos</li>
+            <li>Dashboards y datos reales como protagonistas</li>
+            <li>Iluminación clara, moderna, profesional</li>
+            <li>Paleta cromática alineada con la marca</li>
+            <li>Primeros planos con bokeh limpio</li>
+            <li>Escenas de trabajo reales, no posadas</li>
+          </ul>
+        </div>
+        <div class="visual-rule-cell">
+          <div class="visual-rule-tag dont">Fotografía — No</div>
+          <ul class="visual-list dont-list">
+            <li>Stock photos genérico de personas sonriendo al vacío</li>
+            <li>Ilustraciones planas, cartoonish o infantilizadas</li>
+            <li>Colores saturados fuera de la paleta de marca</li>
+            <li>Imágenes con watermarks o baja resolución</li>
+            <li>Escenas irreales o demasiado perfectas</li>
+            <li>Fondos que rompan el universo B&amp;W de marca</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:40px 0 8px;">Elementos gráficos</div>
+      <div class="graphic-elements-grid">
+        <div class="graphic-el-cell">
+          <div class="graphic-demo"><div class="demo-orb"></div></div>
+          <div class="graphic-name">Orbs</div>
+          <div class="graphic-desc">Círculos borrosos ambientales. Baja opacidad (0.06–0.08). Nunca encima de texto.</div>
+        </div>
+        <div class="graphic-el-cell">
+          <div class="graphic-demo"><div class="demo-line"></div></div>
+          <div class="graphic-name">Líneas</div>
+          <div class="graphic-desc">Divisores 1 px. Estructura y ritmo. Nunca decorativas.</div>
+        </div>
+        <div class="graphic-el-cell">
+          <div class="graphic-demo"><div class="demo-rect"></div></div>
+          <div class="graphic-name">Tarjetas</div>
+          <div class="graphic-desc">Sin radius exagerado. Border 1 px sutil. Fondo surface sobre base.</div>
+        </div>
+        <div class="graphic-el-cell">
+          <div class="graphic-demo"><div class="demo-arrow-text">→</div></div>
+          <div class="graphic-name">Flechas</div>
+          <div class="graphic-desc">Siempre hacia adelante (→ ↗). Dirección y acción, nunca decorativas.</div>
+        </div>
+      </div>
+
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:40px 0 8px;">Sistema de espaciado — grilla 8 px</div>
+      <div class="spacing-row">
+        <div class="space-cell">
+          <div class="space-bar-wrap"><div class="space-bar" style="height:8px;"></div></div>
+          <div class="space-val">8px</div>
+          <div class="space-token">--space-1</div>
+        </div>
+        <div class="space-cell">
+          <div class="space-bar-wrap"><div class="space-bar" style="height:16px;"></div></div>
+          <div class="space-val">16px</div>
+          <div class="space-token">--space-2</div>
+        </div>
+        <div class="space-cell">
+          <div class="space-bar-wrap"><div class="space-bar" style="height:24px;"></div></div>
+          <div class="space-val">24px</div>
+          <div class="space-token">--space-3</div>
+        </div>
+        <div class="space-cell">
+          <div class="space-bar-wrap"><div class="space-bar" style="height:32px;"></div></div>
+          <div class="space-val">32px</div>
+          <div class="space-token">--space-4</div>
+        </div>
+        <div class="space-cell">
+          <div class="space-bar-wrap"><div class="space-bar" style="height:48px;"></div></div>
+          <div class="space-val">48px</div>
+          <div class="space-token">--space-5</div>
+        </div>
+        <div class="space-cell">
+          <div class="space-bar-wrap"><div class="space-bar" style="height:64px;"></div></div>
+          <div class="space-val">64px</div>
+          <div class="space-token">--space-6</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ DESIGN TOKENS (WHITE) ═══════ -->
+  <section id="tokens" class="on-white">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-head-line"></span>
+        <div class="eyebrow">Design Tokens — 07</div>
+        <h2 class="sec-title">Tokens de<br />diseño</h2>
+        <p class="sec-desc">El bloque CSS completo y copy-pasteable. Los tokens son la única fuente de verdad. Nunca hardcodear valores directamente.</p>
+      </div>
+
+      <div class="tokens-grid">
+        <div class="token-group-cell">
+          <div class="token-group-head">Color — Fondos</div>
+          <div class="token-row-item">
+            <span class="token-name-text">--color-black</span>
+            <div class="token-val-wrap"><span class="token-val-text">#080808</span><div class="token-preview-sq" style="background:#080808;"></div></div>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--color-white</span>
+            <div class="token-val-wrap"><span class="token-val-text">#F7F6F4</span><div class="token-preview-sq" style="background:#F7F6F4;"></div></div>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--color-surface</span>
+            <div class="token-val-wrap"><span class="token-val-text">#EBEBEB</span><div class="token-preview-sq" style="background:#EBEBEB;"></div></div>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--color-dark-surface</span>
+            <div class="token-val-wrap"><span class="token-val-text">#1A1A1A</span><div class="token-preview-sq" style="background:#1A1A1A;"></div></div>
+          </div>
+        </div>
+        <div class="token-group-cell">
+          <div class="token-group-head">Color — Acentos</div>
+          <div class="token-row-item">
+            <span class="token-name-text">--color-accent</span>
+            <div class="token-val-wrap"><span class="token-val-text">#6C63FF</span><div class="token-preview-sq" style="background:#6C63FF;"></div></div>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--color-teal</span>
+            <div class="token-val-wrap"><span class="token-val-text">#3ECFCB</span><div class="token-preview-sq" style="background:#3ECFCB;"></div></div>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--color-gold</span>
+            <div class="token-val-wrap"><span class="token-val-text">#E9B84A</span><div class="token-preview-sq" style="background:#E9B84A;"></div></div>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--color-coral</span>
+            <div class="token-val-wrap"><span class="token-val-text">#FF6B6B</span><div class="token-preview-sq" style="background:#FF6B6B;"></div></div>
+          </div>
+        </div>
+        <div class="token-group-cell">
+          <div class="token-group-head">Tipografía</div>
+          <div class="token-row-item">
+            <span class="token-name-text">--font</span>
+            <span class="token-val-text">'Objectivity', 'DM Sans'</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--type-display</span>
+            <span class="token-val-text">72px · w800 · -2px</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--type-h1</span>
+            <span class="token-val-text">48px · w700 · -1px</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--type-h2</span>
+            <span class="token-val-text">34px · w600 · -0.5px</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--type-body</span>
+            <span class="token-val-text">18px · w300 · lh 1.75</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--type-label</span>
+            <span class="token-val-text">10px · w700 · ls 3px · UP</span>
+          </div>
+        </div>
+        <div class="token-group-cell">
+          <div class="token-group-head">Espaciado · Radius · Motion</div>
+          <div class="token-row-item">
+            <span class="token-name-text">--space-unit</span>
+            <span class="token-val-text">8px grid</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--space-xs</span>
+            <span class="token-val-text">8px</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--space-md</span>
+            <span class="token-val-text">32px</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--space-xl</span>
+            <span class="token-val-text">80px</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--radius</span>
+            <span class="token-val-text">2px (flat-first)</span>
+          </div>
+          <div class="token-row-item">
+            <span class="token-name-text">--ease</span>
+            <span class="token-val-text">cubic-bezier(0.22,1,0.36,1)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block"><span class="cm">/* ── Moonroi Design Tokens v2.0 ─────────────────── */</span>
+:root {
+  <span class="cm">/* Backgrounds */</span>
+  <span class="ck">--color-black</span>:           <span class="cv">#080808</span>;
+  <span class="ck">--color-white</span>:           <span class="cv">#F7F6F4</span>;
+  <span class="ck">--color-surface-light</span>:  <span class="cv">#EBEBEB</span>;
+  <span class="ck">--color-surface-dark</span>:   <span class="cv">#1A1A1A</span>;
+
+  <span class="cm">/* Accents */</span>
+  <span class="ck">--color-accent</span>:          <span class="cv">#6C63FF</span>;
+  <span class="ck">--color-teal</span>:            <span class="cv">#3ECFCB</span>;
+  <span class="ck">--color-gold</span>:            <span class="cv">#E9B84A</span>;
+  <span class="ck">--color-coral</span>:           <span class="cv">#FF6B6B</span>;
+
+  <span class="cm">/* Gradients */</span>
+  <span class="ck">--gradient-brand</span>: linear-gradient(90deg, <span class="cv">#6C63FF</span>, <span class="cv">#3ECFCB</span>);
+  <span class="ck">--gradient-gold</span>:  linear-gradient(90deg, <span class="cv">#E9B84A</span>, <span class="cv">#F5D98C</span>);
+
+  <span class="cm">/* Typography */</span>
+  <span class="ck">--font</span>: 'Objectivity', 'DM Sans', system-ui, sans-serif;
+
+  <span class="cm">/* Spacing (8px grid) */</span>
+  <span class="ck">--space-1</span>: <span class="cv">8px</span>;   <span class="ck">--space-2</span>: <span class="cv">16px</span>;  <span class="ck">--space-3</span>: <span class="cv">24px</span>;
+  <span class="ck">--space-4</span>: <span class="cv">32px</span>;  <span class="ck">--space-5</span>: <span class="cv">48px</span>;  <span class="ck">--space-6</span>: <span class="cv">64px</span>;
+  <span class="ck">--space-7</span>: <span class="cv">80px</span>;  <span class="ck">--space-8</span>: <span class="cv">96px</span>;  <span class="ck">--space-9</span>: <span class="cv">120px</span>;
+
+  <span class="cm">/* Motion */</span>
+  <span class="ck">--ease</span>:      cubic-bezier(0.22, 1, 0.36, 1);
+  <span class="ck">--dur-fast</span>:  <span class="cv">150ms</span>;
+  <span class="ck">--dur-base</span>:  <span class="cv">250ms</span>;
+}</div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER (BLACK) ═══════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-wordmark">Moonroi</div>
+        <div class="footer-meta">
+          <p>Brand Manual v2.0 — Abril 2026</p>
+          <p>150+ empresas · €12M ad spend · €36M revenue generado</p>
+          <p><a href="/cdn-cgi/l/email-protection#33434350735e5c5c5d415c5a1d505c5e"><span class="__cf_email__" data-cfemail="6818180b28050707061a0701460b0705">[email&#160;protected]</span></a> · <a href="https://moonroi.com" target="_blank">moonroi.com</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
